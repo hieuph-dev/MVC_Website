@@ -1,0 +1,86 @@
+﻿@model WebBanHang.Context.User
+
+@{
+    ViewBag.Title = "Register";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal card mx-auto" style="max-width:520px; margin-top:40px;">
+    <article class="card-body">
+        <header class="mb-4"><h4 class="card-title">Đăng kí</h4></header>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <form>
+        <div class="form-row">
+            <div class="col form-group">
+                @*@Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-md-12">
+                    <label>Tên</label>
+                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col form-group">
+                @*@Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-md-12">
+                    <label>Họ</label>
+                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-12">
+                <label>Email</label>
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.PasswordUser, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-12">
+                <label>Mật khẩu</label>
+                @Html.EditorFor(model => model.PasswordUser, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PasswordUser, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsAdmin, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.IsAdmin, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IsAdmin, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col form-group">
+                <div class="col-md-offset-2 col-md-12">
+                    <input type="submit" value="Tạo tài khoản" class="btn btn-primary" style="padding-left: 1rem; padding-top: 0.5rem; padding-right: 1.5rem; padding-bottom: 0.5rem; " />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-12" >  
+                    @Html.ActionLink("Quay về", "Index")
+                </div>
+            </div>
+        </div>
+
+        
+
+        
+        
+    </form>
+    </article><!-- card-body.// -->
+</div>
+    
+}
+
+
